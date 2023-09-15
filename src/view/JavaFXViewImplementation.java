@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package interfaces;
 
 /**
  *
  * @author 2dam
  */
-public class JavaFXViewImplementation {
-
+public class View {
     /**
-     *
-     * @param greeting
+     * 
+     * @param greeting 
      */
     public void showGreeting(String greeting) {
     }
