@@ -3,16 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controllers;
+
+import interfaces.*;
 
 /**
+ * This class is a controller that get the model and the view to show the
+ * greeting.
  *
- * @author 2dam
+ * @author Nerea
  */
 public class Controller {
+
+    public static View view;
+    public static Model model;
+
     /**
-     * 
+     * A contructor of the controller.
+     *
+     * @param view An inteface with the view implementation.
+     * @param model An inteface with the model implementation.
+     */
+    public Controller(View view, Model model) {
+        Controller.view = view;
+        Controller.model = model;
+    }
+
+    public Controller() {
+    }
+
+    /**
+     * This method shows the greeting taking account the model and the view that
+     * it needs.
      */
     public void run() {
+        view.showGreeting(model.getGreeting());
     }
 }

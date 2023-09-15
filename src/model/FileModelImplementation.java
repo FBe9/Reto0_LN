@@ -5,16 +5,25 @@
  */
 package model;
 
+import interfaces.Model;
+import java.util.ResourceBundle;
+
 /**
- *
- * @author 2dam
+ * This class is an implementation from the Model interface using a property file. 
+ * 
+ * @author Nerea
  */
-public class FileModelImplementation {
+public class FileModelImplementation implements Model {
+
+    //Get the message from the property file
+    private static final String MSG = ResourceBundle.getBundle("model.config.parameters").getString("MSG");
+
     /**
-     * 
-     * @return 
+     *
+     * @return A String with the message from the property file
      */
+    @Override
     public String getGreeting() {
-        return null;
+        return MSG;
     }
 }
