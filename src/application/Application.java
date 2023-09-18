@@ -5,6 +5,13 @@
  */
 package application;
 
+import controllers.Controller;
+import exceptions.ConfigFileBadWriteException;
+import factories.ModelFactory;
+import factories.ViewFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Leire
@@ -15,7 +22,15 @@ public class Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ViewFactory view = new ViewFactory();
+        ModelFactory model = new ModelFactory();
+
+        try {
+            new Controller(view.getView(), model.getModel()).run();
+        } catch (ConfigFileBadWriteException ex) {
+            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-    
+
 }

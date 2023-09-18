@@ -21,7 +21,7 @@ public class ModelFactory {
     //View Interface.
     private static Model model;
     //Text from de config file to specify the model type.
-    private static final String MODEL = ResourceBundle.getBundle("model.config.parameters").getString("MODEL");
+    private static final String MODEL = ResourceBundle.getBundle("model.config").getString("MODEL");
 
     /**
      * This method returs the implementation from de model that is need accordig

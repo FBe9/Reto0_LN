@@ -21,7 +21,7 @@ public class ViewFactory {
     //View Interface.
     private static View view;
     //Text from de config file to specify the view type.
-    private static final String VIEW = ResourceBundle.getBundle("model.config.parameters").getString("VIEW");
+    private final String VIEW = ResourceBundle.getBundle("model.config").getString("VIEW");
 
     /**
      * This method returs the implementation from de view that is need accordig
