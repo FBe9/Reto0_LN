@@ -5,20 +5,40 @@
  */
 package factories;
 
+import exceptions.ConfigFileBadWriteException;
 import interfaces.View;
+import java.util.ResourceBundle;
+import view.JavaFXViewImplementation;
+import view.TextViewImplementation;
 
 /**
+ * ModelFactory is a Factory.
  *
- * @author 2dam
+ * @author Leire
  */
 public class ViewFactory {
 
-    /**
-     *
-     * @return
-     */
-    public View getView() {
-        return null;
+    //View Interface.
+    private static View view;
+    //Text from de config file to specify the view type.
+    private static final String VIEW = ResourceBundle.getBundle("model.config.parameters").getString("VIEW");
 
+    /**
+     * This method returs the implementation from de view that is need accordig
+     * to the config file.
+     *
+     * @throws exceptions.ConfigFileBadWriteException Throws an error that tells
+     * the client that the config file's parameter is wrong.
+     * @return The implementation from the view.
+     */
+    public View getView() throws ConfigFileBadWriteException {
+        if (VIEW.equalsIgnoreCase("WINDOW")) {
+            view = new JavaFXViewImplementation();
+        } else if (VIEW.equalsIgnoreCase("TXT")) {
+            view = new TextViewImplementation();
+        } else {
+            throw new ConfigFileBadWriteException("The text that appears in the configuration file of the requested parameter is not a valid value.");
+        }
+        return view;
     }
 }
