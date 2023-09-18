@@ -6,14 +6,18 @@
 package interfaces;
 
 /**
- *
- * @author 2dam
+ * View is an Interface.
+ * 
+ * @author Leire
  */
-public class View {
+public interface View {
+
     /**
+     * This method shows a string from Window or Terminal depending to the implementation .
      * 
-     * @param greeting 
+     * @param greeting Is a String with the message.
      */
-    public void showGreeting(String greeting) {
-    }
+    public void showGreeting(String greeting);
+
 }
+

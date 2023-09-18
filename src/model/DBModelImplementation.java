@@ -5,16 +5,21 @@
  */
 package model;
 
+import interfaces.Model;
+
 /**
- *
- * @author 2dam
+ * This class is an implementation from the Model interface using a data base. 
+ * 
+ * @author Leire
  */
-public class DBModelImplementation {
+public class DBModelImplementation implements Model{
+
     /**
      * 
      * @return 
      */
+    @Override
     public String getGreeting() {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
