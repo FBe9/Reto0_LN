@@ -6,15 +6,17 @@
 package interfaces;
 
 /**
- *
- * @author 2dam
- */
-public class Model {
-/**
+ * Model is an interface.
  * 
- * @return 
+ * @author Nerea
  */
-    public String getGreeting() {
-        return null;
-    }
+public interface Model {
+
+    /**
+     * This method returns a string from de Database or File depending to the implementation.
+     *
+     * @return A String with the message.
+     */
+    public String getGreeting();
+
 }

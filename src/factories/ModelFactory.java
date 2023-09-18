@@ -5,19 +5,40 @@
  */
 package factories;
 
+import exceptions.ConfigFileBadWriteException;
 import interfaces.Model;
+import java.util.ResourceBundle;
+import model.DBModelImplementation;
+import model.FileModelImplementation;
 
 /**
- *
- * @author 2dam
+ * ModelFactory is a Factory.
+ * 
+ * @author Nerea
  */
 public class ModelFactory {
-    /**
-     * 
-     * @return 
-     */
-    public Model getView() {
-        return null;
 
+    //View Interface.
+    private static Model model;
+    //Text from de config file to specify the model type.
+    private static final String MODEL = ResourceBundle.getBundle("model.config.parameters").getString("MODEL");
+
+    /**
+     * This method returs the implementation from de model that is need accordig
+     * to the config file.
+     *
+     * @throws exceptions.ConfigFileBadWriteException Throws an error that tells
+     * the client that the config file's parameter is wrong.
+     * @return The implementation from the model.
+     */
+    public Model getModel() throws ConfigFileBadWriteException {
+        if (MODEL.equalsIgnoreCase("FILE")) {
+            model = new FileModelImplementation();
+        } else if (MODEL.equalsIgnoreCase("DB")) {
+            model = new DBModelImplementation();
+        } else {
+            throw new ConfigFileBadWriteException("The text that appears in the configuration file of the requested parameter is not a valid value.");
+        }
+        return model;
     }
 }
