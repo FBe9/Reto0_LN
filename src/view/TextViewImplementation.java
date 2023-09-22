@@ -5,16 +5,23 @@
  */
 package view;
 
+import interfaces.View;
+
 /**
+ * This class is an implementation from the View interface using a 
+ * System.out.println().
  *
- * @author 2dam
+ * @author Leire
  */
-public class TextViewImplementation {
+public class TextViewImplementation implements View {
 
     /**
+     * This method shows the greeting from the config file.
      *
-     * @param greeting
+     * @param greeting A string with the messages from the config file.
      */
+    @Override
     public void showGreeting(String greeting) {
+        System.out.println(greeting);
     }
 }

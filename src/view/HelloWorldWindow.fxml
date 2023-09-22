@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="278.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.JavaFXViewImplementation">
+   <children>
+      <ImageView fitHeight="179.0" fitWidth="292.0" layoutX="-9.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@world.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="1.0" layoutY="82.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Roboto;" text="Hello World" textAlignment="CENTER" wrappingWidth="278.0">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+   </children>
+</Pane>

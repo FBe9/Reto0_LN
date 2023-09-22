@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class FileModelImplementation implements Model {
 
     //Get the message from the property file
-    private static final String MSG = ResourceBundle.getBundle("model.config.parameters").getString("MSG");
+    private static final String MSG = ResourceBundle.getBundle("model.config").getString("MSG");
 
     /**
      *

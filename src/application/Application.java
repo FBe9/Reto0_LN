@@ -5,17 +5,37 @@
  */
 package application;
 
+import controllers.Controller;
+import exceptions.ConfigFileBadWriteException;
+import factories.ModelFactory;
+import factories.ViewFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.stage.Stage;
+
 /**
  *
- * @author 2dam
+ * @author Leire
  */
-public class Application {
+public class Application extends javafx.application.Application {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ViewFactory view = new ViewFactory();
+        ModelFactory model = new ModelFactory();
+
+        try {
+            new Controller(view.getView(), model.getModel()).run();
+        } catch (ConfigFileBadWriteException ex) {
+            Logger.getLogger(application.Application.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+
+    @Override
+    public void start(Stage primaryStage) {
+
+    }
+
 }
