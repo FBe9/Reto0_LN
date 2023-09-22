@@ -9,9 +9,12 @@ import interfaces.View;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
+
 import javafx.stage.Stage;
 
 /**
@@ -19,10 +22,14 @@ import javafx.stage.Stage;
  *
  * @author Nerea
  */
-public class JavaFXViewImplementation implements View {
+public class JavaFXViewImplementation extends javafx.application.Application implements View {
+
+    @FXML
+    private Text text;
 
     private Stage stage;
     private static final Logger LOGGER = Logger.getLogger("package view.JavaFXViewImplementation");
+    private static String greeting;
 
     /**
      *
@@ -30,14 +37,23 @@ public class JavaFXViewImplementation implements View {
      */
     @Override
     public void showGreeting(String greeting) {
-
+        this.greeting = greeting;
+        launch(greeting);
     }
 
-    public void start(Stage stage) throws Exception {
+    /**
+     * This method initialize the Hello Word Window and shows the window.
+     *
+     * @param stage The stage that the window use to be shown.
+     */
+    @Override
+    public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("view/HelloWorldWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HelloWorldWindow.fxml"));
             Parent root = (Parent) loader.load();
-            LOGGER.info("Initializing SignIn window");
+            //Get the controller from the window
+            JavaFXViewImplementation controller = (JavaFXViewImplementation) loader.getController();
+            LOGGER.info("Initializing hello world window");
             //Creates an scene
             Scene scene = new Scene(root);
             //Establishes an scene
@@ -46,6 +62,7 @@ public class JavaFXViewImplementation implements View {
             stage.setTitle("HelloWorldWindow");
             //Not resizable window
             stage.setResizable(false);
+            controller.text.setText(greeting);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(JavaFXViewImplementation.class.getName()).log(Level.SEVERE, null, ex);

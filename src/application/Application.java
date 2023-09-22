@@ -11,13 +11,12 @@ import factories.ModelFactory;
 import factories.ViewFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.stage.Stage;
 
 /**
  *
  * @author Leire
  */
-public class Application extends javafx.application.Application {
+public class Application {
 
     /**
      * @param args the command line arguments
@@ -31,11 +30,6 @@ public class Application extends javafx.application.Application {
         } catch (ConfigFileBadWriteException ex) {
             Logger.getLogger(application.Application.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-
     }
 
 }
