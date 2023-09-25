@@ -27,6 +27,6 @@ public class ConfigFileBadWriteException extends Exception {
      * @param msg the detail message.
      */
     public ConfigFileBadWriteException(String msg) {
-        super(msg);
+        super("The text that appears in the configuration file of the requested parameter is not a valid value");
     }
 }

@@ -34,6 +34,4 @@ public class Application {
         } catch (ConfigFileBadWriteException ex) {
             Logger.getLogger(application.Application.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
 }

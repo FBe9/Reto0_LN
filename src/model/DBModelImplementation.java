@@ -17,8 +17,8 @@ import java.util.logging.Logger;
  */
 public class DBModelImplementation extends ModelDBConnection implements Model {
 
-    private static final String SEARCHGREETING = "SELECT greeting FROM greeting";
-
+  private static final String SEARCHGREETING = "SELECT greeting FROM greeting";
+  
     /**
      * This method gets the message from the Data Base.
      * 
@@ -27,6 +27,7 @@ public class DBModelImplementation extends ModelDBConnection implements Model {
     @Override
     public String getGreeting() {
         String resultado = null;
+      
         try {
             openConnection();
             stmt = con.prepareStatement(SEARCHGREETING);
@@ -39,7 +40,7 @@ public class DBModelImplementation extends ModelDBConnection implements Model {
         } finally {
             closeConnection();
         }
-
+      
         return resultado;
     }
 }
