@@ -12,7 +12,7 @@ import view.JavaFXViewImplementation;
 import view.TextViewImplementation;
 
 /**
- * ModelFactory is a Factory.
+ * ModelFactory is a Factory that gives the view implementation that is need taking account the config file.
  *
  * @author Leire
  */

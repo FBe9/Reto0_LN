@@ -17,27 +17,29 @@ import java.util.logging.Logger;
  */
 public class DBModelImplementation extends ModelDBConnection implements Model {
 
-  private static final String SEARCHGREETING = "SELECT greeting FROM greeting";
+    private static final String SEARCHGREETING = "SELECT greeting FROM greeting";
+
     /**
+     * This method gets the message from the Data Base.
      * 
-     * @return 
+     * @return
      */
     @Override
     public String getGreeting() {
         String resultado = null;
-            try {
-                openConnection();
-                stmt = con.prepareStatement(SEARCHGREETING);
-                rs = stmt.executeQuery();
-                rs.next();
-               resultado = rs.getString(1);
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(DBModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                closeConnection();
-            }
-        
+        try {
+            openConnection();
+            stmt = con.prepareStatement(SEARCHGREETING);
+            rs = stmt.executeQuery();
+            rs.next();
+            resultado = rs.getString(1);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DBModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection();
+        }
+
         return resultado;
     }
 }

@@ -19,7 +19,8 @@ public class FileModelImplementation implements Model {
     private static final String MSG = ResourceBundle.getBundle("model.config").getString("MSG");
 
     /**
-     *
+     * This method takes the message from the config file.
+     * 
      * @return A String with the message from the property file
      */
     @Override

@@ -6,6 +6,8 @@
 package exceptions;
 
 /**
+ * This exception is use when the config file has a parameter that is not
+ * contemplated.
  *
  * @author Nerea
  */
@@ -25,6 +27,6 @@ public class ConfigFileBadWriteException extends Exception {
      * @param msg the detail message.
      */
     public ConfigFileBadWriteException(String msg) {
-        super("The text that appears in the configuration file of the requested parameter is not a valid value");
+        super(msg);
     }
 }

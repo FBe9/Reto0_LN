@@ -12,8 +12,9 @@ import model.DBModelImplementation;
 import model.FileModelImplementation;
 
 /**
- * ModelFactory is a Factory.
- * 
+ * ModelFactory is a Factory that gives the model implementation that is need
+ * taking account the config file.
+ *
  * @author Nerea
  */
 public class ModelFactory {

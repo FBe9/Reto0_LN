@@ -19,7 +19,8 @@ public class Controller {
     public static Model model;
 
     /**
-     * A contructor of the controller.
+     * A contructor of the controller with 2 parameters, each one from a
+     * diferent interface.
      *
      * @param view An inteface with the view implementation.
      * @param model An inteface with the model implementation.
@@ -28,7 +29,10 @@ public class Controller {
         Controller.view = view;
         Controller.model = model;
     }
-
+    
+    /**
+     * A contructor with no parameters
+     */
     public Controller() {
     }
 
