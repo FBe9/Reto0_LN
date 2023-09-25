@@ -11,13 +11,13 @@ import static org.junit.Assert.*;
 
 /**
  * Test the FileModelImplementation class
- * 
+ *
  * @author Nerea
  */
 public class FileModelImplementationTest {
-    
+
     FileModelImplementation fileModelImplementation = null;
-    
+
     public FileModelImplementationTest() {
     }
 
@@ -27,22 +27,22 @@ public class FileModelImplementationTest {
     @Test
     public void testGetGreeting() {
         fileModelImplementation = new FileModelImplementation();
-        assertEquals("Hello world from the config file",fileModelImplementation.getGreeting());
+        assertEquals("Hello world from the config file", fileModelImplementation.getGreeting());
     }
-    
- /**
-  * Test the constructor
-  */
+
+    /**
+     * Test the constructor
+     */
     @Test
     public void testConstructor() {
         fileModelImplementation = new FileModelImplementation();
         assertNotNull(fileModelImplementation.getGreeting());
         assertTrue(fileModelImplementation instanceof FileModelImplementation);
     }
-    
+
     /**
-    * Test that FileModelImplementation is an instance of Model interface
-    */
+     * Test that FileModelImplementation is an instance of Model interface
+     */
     @Test
     public void testBeingModel() {
         fileModelImplementation = new FileModelImplementation();
