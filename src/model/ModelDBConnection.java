@@ -14,8 +14,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 /**
- * This class makes the connection with the DB.
- * 
+ * This class makes the connection with the Data Base.
+ *
  * @author Leire
  */
 public class ModelDBConnection {
@@ -27,17 +27,14 @@ public class ModelDBConnection {
 
     // Access to the configuration file.
     protected static ResourceBundle config = ResourceBundle.getBundle("model.config");
-    protected String //db = configFile.getString("DB"),
-            url = config.getString("Connection"),
-            user = config.getString("DBUser"),
-            pass = config.getString("DBPasswd");
+    protected String url = config.getString("Connection"), user = config.getString("DBUser"), pass = config.getString("DBPasswd");
 
     protected void openConnection() {
         con = null;
         try {
             con = DriverManager.getConnection(url, user, pass);
-        } catch (SQLException e) {
-            LOGGER.severe("Error opening the connection with the db");
+        } catch (SQLException ex) {
+            LOGGER.severe("Error while opening the connection with the Data Base");
         }
     }
 
@@ -51,7 +48,7 @@ public class ModelDBConnection {
                 con.close();
             }
         } catch (SQLException e) {
-            LOGGER.severe("Error closing the connection with the db");
+            LOGGER.severe("Error while closing the connection with the Data Base");
         }
     }
 }

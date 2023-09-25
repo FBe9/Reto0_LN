@@ -6,6 +6,8 @@
 package exceptions;
 
 /**
+ * This exception is use when the config file has a parameter that is not
+ * contemplated.
  *
  * @author Nerea
  */
