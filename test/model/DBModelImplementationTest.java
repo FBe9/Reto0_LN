@@ -6,6 +6,9 @@
 package model;
 
 import interfaces.Model;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,6 +20,7 @@ import static org.junit.Assert.*;
 public class DBModelImplementationTest {
 
     DBModelImplementation dbm = null;
+    private static final ResourceBundle CONFIG = ResourceBundle.getBundle("model.config");
 
     public DBModelImplementationTest() {
     }
@@ -49,4 +53,22 @@ public class DBModelImplementationTest {
         assertTrue(dbm instanceof Model);
     }
 
+    /**
+     * Test that what happens if the config file is not right
+     */
+    @Test(expected = org.junit.ComparisonFailure.class)
+    public void testFileNotRightWrite() {
+        dbm = new DBModelImplementation();
+        String model = CONFIG.getString("MODEL");
+        assertEquals("DB", model);
+    }
+
+    /**
+     * Test of getGreeting method, of class FileModelImplementation.
+     */
+    @Test(expected = org.junit.ComparisonFailure.class)
+    public void testNotRightGreeting() {
+        dbm = new DBModelImplementation();
+        assertEquals("Hello world from the config file", dbm.getGreeting());
+    }
 }

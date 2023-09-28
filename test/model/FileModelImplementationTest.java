@@ -6,6 +6,7 @@
 package model;
 
 import interfaces.Model;
+import java.util.ResourceBundle;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,6 +18,8 @@ import static org.junit.Assert.*;
 public class FileModelImplementationTest {
 
     FileModelImplementation fileModelImplementation = null;
+    private static final ResourceBundle CONFIG = ResourceBundle.getBundle("model.config");
+
 
     public FileModelImplementationTest() {
     }
@@ -47,5 +50,24 @@ public class FileModelImplementationTest {
     public void testBeingModel() {
         fileModelImplementation = new FileModelImplementation();
         assertTrue(fileModelImplementation instanceof Model);
+    }
+
+    /**
+     * Test that what happens if the config file is not right
+     */
+    @Test (expected = org.junit.ComparisonFailure.class)
+    public void testFileNotRightWrite() {
+        fileModelImplementation = new FileModelImplementation();
+        String model = CONFIG.getString("MODEL");
+        assertEquals(model, "FILE");
+    }
+    
+    /**
+     * Test of getGreeting method, of class FileModelImplementation.
+     */
+    @Test (expected = org.junit.ComparisonFailure.class)
+    public void testNotRightGreeting() {
+        fileModelImplementation = new FileModelImplementation();
+        assertEquals("Hello world from the DB", fileModelImplementation.getGreeting());
     }
 }
